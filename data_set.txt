@@ -1,0 +1,18 @@
+import pandas as pd
+
+# Assuming your DataFrame is named 'df' and has a 'Date' column
+start_year = int(input("Enter the start year (YYYY): "))
+end_year = int(input("Enter the end year (YYYY): "))
+
+try:
+    # Filter the DataFrame for the specified year range
+    units_sold_in_range = df[(df.index.year >= start_year) & (df.index.year <= end_year)][['Units Sold']]
+
+    # Display the units sold within the date range
+    print(units_sold_in_range)
+
+except ValueError:
+    print("Invalid year format. Please enter years in YYYY format.")
+
+except KeyError:
+    print("No data found for the specified year range.")
